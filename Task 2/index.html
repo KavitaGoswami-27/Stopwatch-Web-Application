@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Stopwatch</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <h1>
+                <i class="fa-solid fa-stopwatch"></i>
+                Premium Stopwatch
+            </h1>
+
+            <button id="themeBtn">
+                🌙 Dark Mode
+            </button>
+
+        </div>
+
+        <!-- Live Date -->
+
+        <div class="dateTime">
+
+            <div id="currentDate"></div>
+
+            <div id="currentClock"></div>
+
+        </div>
+
+        <!-- Time Format -->
+
+        <div class="format">
+
+            HH : MM : SS : MS
+
+        </div>
+
+        <!-- Stopwatch -->
+
+        <div id="display">
+
+            00 : 00 : 00 : 000
+
+        </div>
+
+        <!-- Status -->
+
+        <div id="status">
+
+            🔴 Stopped
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button id="start">
+                <i class="fa-solid fa-play"></i>
+                Start
+            </button>
+
+            <button id="pause">
+                <i class="fa-solid fa-pause"></i>
+                Pause
+            </button>
+
+            <button id="reset">
+                <i class="fa-solid fa-rotate-left"></i>
+                Reset
+            </button>
+
+            <button id="lap">
+                <i class="fa-solid fa-flag-checkered"></i>
+                Lap
+            </button>
+
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="stats">
+
+            <div class="card">
+
+                <h3>Total Laps</h3>
+
+                <span id="lapCount">0</span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Best Lap</h3>
+
+                <span id="bestLap">--</span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Average Lap</h3>
+
+                <span id="avgLap">--</span>
+
+            </div>
+
+        </div>
+
+        <!-- Export -->
+
+        <div class="export">
+
+            <button id="download">
+
+                <i class="fa-solid fa-download"></i>
+
+                Export Lap Times
+
+            </button>
+
+        </div>
+
+        <!-- Keyboard -->
+
+        <div class="shortcut">
+
+            ⌨ Shortcuts :
+            <strong>Space</strong> = Start/Pause |
+            <strong>L</strong> = Lap |
+            <strong>R</strong> = Reset
+
+        </div>
+
+        <!-- Lap Section -->
+
+        <div class="laps">
+
+            <h2>
+
+                <i class="fa-solid fa-list"></i>
+
+                Lap Times
+
+            </h2>
+
+            <ul id="lapList">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
