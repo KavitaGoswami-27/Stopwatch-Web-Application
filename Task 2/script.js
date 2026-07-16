@@ -1,9 +1,3 @@
-// ==========================
-// PREMIUM STOPWATCH
-// Part 3A
-// ==========================
-
-// Elements
 
 const display = document.getElementById("display");
 const statusText = document.getElementById("status");
@@ -26,21 +20,14 @@ const currentClock = document.getElementById("currentClock");
 
 const downloadBtn = document.getElementById("download");
 
-// Stopwatch Variables
 
 let startTime = 0;
 let elapsedTime = 0;
 let interval = null;
 let running = false;
 
-// Lap Variables
-
 let lapNumber = 1;
 let lapTimes = [];
-
-// ==========================
-// Update Stopwatch Display
-// ==========================
 
 function updateDisplay(){
 
@@ -62,9 +49,6 @@ function updateDisplay(){
 
 }
 
-// ==========================
-// Live Date & Clock
-// ==========================
 
 function updateDateTime(){
 
@@ -82,9 +66,6 @@ setInterval(updateDateTime,1000);
 
 updateDateTime();
 
-// ==========================
-// Start Stopwatch
-// ==========================
 
 function startStopwatch(){
 
@@ -106,9 +87,6 @@ function startStopwatch(){
 
 }
 
-// ==========================
-// Pause Stopwatch
-// ==========================
 
 function pauseStopwatch(){
 
@@ -121,10 +99,6 @@ function pauseStopwatch(){
     statusText.innerHTML = "🟡 Paused";
 
 }
-
-// ==========================
-// Reset Stopwatch
-// ==========================
 
 function resetStopwatch(){
 
@@ -153,12 +127,7 @@ function resetStopwatch(){
 }
 
 updateDisplay();
-// ==========================
-// Part 3B
-// Lap Functions & Statistics
-// ==========================
 
-// Convert milliseconds into HH : MM : SS : MS format
 function formatTime(time){
 
     let hours = Math.floor(time / 3600000);
@@ -178,10 +147,6 @@ function formatTime(time){
 
 }
 
-// ==========================
-// Calculate Statistics
-// ==========================
-
 function updateStatistics(){
 
     lapCount.textContent = lapTimes.length;
@@ -194,12 +159,10 @@ function updateStatistics(){
 
     }
 
-    // Best Lap
     let fastest = Math.min(...lapTimes);
 
     bestLap.textContent = formatTime(fastest);
 
-    // Average Lap
     let total = lapTimes.reduce((sum,value)=>sum+value,0);
 
     let average = Math.floor(total / lapTimes.length);
@@ -208,9 +171,6 @@ function updateStatistics(){
 
 }
 
-// ==========================
-// Add Lap
-// ==========================
 
 function addLap(){
 
@@ -239,10 +199,6 @@ function addLap(){
 
 }
 
-// ==========================
-// Button Events
-// ==========================
-
 startBtn.addEventListener("click",startStopwatch);
 
 pauseBtn.addEventListener("click",pauseStopwatch);
@@ -250,14 +206,7 @@ pauseBtn.addEventListener("click",pauseStopwatch);
 resetBtn.addEventListener("click",resetStopwatch);
 
 lapBtn.addEventListener("click",addLap);
-// ==========================
-// Part 3C
-// Theme, Keyboard & Export
-// ==========================
 
-// --------------------------
-// Dark / Light Mode
-// --------------------------
 
 let darkMode = false;
 
@@ -279,13 +228,8 @@ themeBtn.addEventListener("click", function () {
 
 });
 
-// --------------------------
-// Keyboard Shortcuts
-// --------------------------
-
 document.addEventListener("keydown", function (event) {
 
-    // Ignore shortcuts while typing
     if (
         event.target.tagName === "INPUT" ||
         event.target.tagName === "TEXTAREA"
@@ -293,7 +237,6 @@ document.addEventListener("keydown", function (event) {
         return;
     }
 
-    // Space = Start / Pause
     if (event.code === "Space") {
 
         event.preventDefault();
@@ -310,14 +253,12 @@ document.addEventListener("keydown", function (event) {
 
     }
 
-    // L = Lap
     if (event.key.toLowerCase() === "l") {
 
         addLap();
 
     }
 
-    // R = Reset
     if (event.key.toLowerCase() === "r") {
 
         resetStopwatch();
@@ -325,10 +266,6 @@ document.addEventListener("keydown", function (event) {
     }
 
 });
-
-// --------------------------
-// Export Lap Times
-// --------------------------
 
 downloadBtn.addEventListener("click", function () {
 
@@ -340,7 +277,7 @@ downloadBtn.addEventListener("click", function () {
 
     }
 
-    let text = "====== PREMIUM STOPWATCH ======\n\n";
+    let text = "====== STOPWATCH ======\n\n";
 
     text += "Lap Times\n\n";
 
@@ -390,19 +327,8 @@ downloadBtn.addEventListener("click", function () {
 
 });
 
-// --------------------------
-// Welcome Message
-// --------------------------
 
-console.log("Premium Stopwatch Loaded Successfully!");
-// ==========================
-// Part 3D
-// Premium Features
-// ==========================
-
-// --------------------------
-// Button Click Animation
-// --------------------------
+console.log("Stopwatch Loaded Successfully!");
 
 const allButtons = document.querySelectorAll("button");
 
@@ -421,10 +347,6 @@ allButtons.forEach(button => {
     });
 
 });
-
-// --------------------------
-// Stopwatch Glow Effect
-// --------------------------
 
 function updateGlow(){
 
@@ -445,9 +367,6 @@ function updateGlow(){
 
 setInterval(updateGlow,100);
 
-// --------------------------
-// Highlight Best Lap
-// --------------------------
 
 function highlightBestLap(){
 
@@ -485,7 +404,6 @@ function highlightBestLap(){
 
 }
 
-// Run after every lap
 
 const oldAddLap=addLap;
 
@@ -496,10 +414,6 @@ addLap=function(){
     highlightBestLap();
 
 };
-
-// --------------------------
-// Achievement Messages
-// --------------------------
 
 let minuteShown=false;
 
@@ -515,9 +429,6 @@ setInterval(function(){
 
 },1000);
 
-// --------------------------
-// 10 Lap Achievement
-// --------------------------
 
 function checkAchievements(){
 
@@ -529,7 +440,6 @@ function checkAchievements(){
 
 }
 
-// Override Again
 
 const previousLap=addLap;
 
@@ -540,10 +450,6 @@ addLap=function(){
     checkAchievements();
 
 };
-
-// --------------------------
-// Welcome Animation
-// --------------------------
 
 window.addEventListener("load",function(){
 
@@ -563,11 +469,7 @@ window.addEventListener("load",function(){
 
 });
 
-// --------------------------
-// Footer Console Message
-// --------------------------
-
 console.log("====================================");
-console.log(" Premium Stopwatch Ready 🚀");
+console.log(" Stopwatch Ready 🚀");
 console.log(" Developed using HTML CSS JavaScript");
 console.log("====================================");
